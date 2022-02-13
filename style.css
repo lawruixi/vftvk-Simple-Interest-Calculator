@@ -65,3 +65,7 @@ h1{
 .input_element{
     width: 200px;
 }
+
+#rate{
+    margin-right:10px;
+}
