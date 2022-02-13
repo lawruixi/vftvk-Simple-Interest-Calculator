@@ -10,6 +10,11 @@ function compute(){
         return;
     }
 
+    if(document.getElementById("principal").value <= 0){
+        alert("Amount must be a positive number.");
+        return;
+    }
+
     let principal = document.getElementById("principal").value;
     let rate = document.getElementById("rate").value / 2;
     let years = document.getElementById("years").value;
