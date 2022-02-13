@@ -4,6 +4,12 @@ window.onload = (event) =>{
 }
 
 function compute(){
+    //Validate the amount text field.
+    if(document.getElementById("principal").value == ""){
+        alert("Amount must be a valid number.");
+        return;
+    }
+
     let principal = document.getElementById("principal").value;
     let rate = document.getElementById("rate").value / 2;
     let years = document.getElementById("years").value;
@@ -20,6 +26,22 @@ function compute(){
     + "you will receive an amount of <mark>" + simple_interest.toFixed(2) + "</mark><br>"
     + "in the year <mark>" + year + "</mark>";
 
+}
+
+function on_principal_value_changed(e){
+    if (e.shiftKey === true ) {
+        if (e.which == 9) {
+            return true;
+        }
+        return false;
+    }
+    if (e.which > 57) {
+        return false;
+    }
+    if (e.which==32) {
+        return false;
+    }
+    return true;
 }
 
 
