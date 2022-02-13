@@ -5,13 +5,16 @@ window.onload = (event) =>{
 
 function compute(){
     //Validate the amount text field.
-    if(document.getElementById("principal").value == ""){
+    let principal_textfield = document.getElementById("principal");
+    if(principal_textfield.value == ""){
         alert("Amount must be a valid number.");
+        principal_textfield.focus();
         return;
     }
 
-    if(document.getElementById("principal").value <= 0){
+    if(principal_textfield.value <= 0){
         alert("Amount must be a positive number.");
+        principal_textfield.focus();
         return;
     }
 
