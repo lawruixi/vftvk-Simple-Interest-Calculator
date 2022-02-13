@@ -8,16 +8,25 @@ function compute(){
     let rate = document.getElementById("rate").value / 2;
     let years = document.getElementById("years").value;
 
-    let simple_interest = principal * (rate / 100) * years;
+    let final_principal = principal;
+
+    for(let i = 0; i < years; i++){
+        final_principal *= (1 + (rate / 100));
+    }
 
     let year = new Date().getFullYear() + parseInt(years);
 
     let results_p = document.getElementById("results_p");
+    results_p.innerHTML =
+        "If you deposit <mark>" + principal + "</mark>,<br>"
+    + "at an interest rate of <mark>" + rate.toFixed(2) + "%</mark>,<br>"
+    + "you will receive an amount of <mark>" + final_principal.toFixed(2) + "</mark><br>"
+    + "in the year <mark>" + year + "</mark>";
 
     results_p.innerHTML =
         "If you deposit <mark>" + principal + "</mark>,<br>"
     + "at an interest rate of <mark>" + rate.toFixed(2) + "%</mark>,<br>"
-    + "you will receive an amount of <mark>" + simple_interest.toFixed(2) + "</mark><br>"
+    + "you will receive an amount of <mark>" + final_principal.toFixed(2) + "</mark><br>"
     + "in the year <mark>" + year + "</mark>";
 
 }
